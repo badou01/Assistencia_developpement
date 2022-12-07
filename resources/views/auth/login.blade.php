@@ -1,11 +1,21 @@
-@extends('layouts.app')
+@extends('formnav')
+@section('headtitle','Connexion')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="row mt-4">
+
+</div>
+</div>
+<div class="container-fluid mt-5 my-5 ">
+    <div class="row justify-content-center align-tiems-center ">
+        <div class="col-md-7 col-sm-7 col-lg-4">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">
+                    {{-- <h4 class="text-center">{{ __('Connexion') }}</h4> --}}
+                    <img src="{{asset('assets/home_assets/images/connexion.jpg')}}" class="rounded mx-auto d-block" alt="...">
+
+                    </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -52,7 +62,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-12 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>

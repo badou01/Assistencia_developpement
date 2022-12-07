@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Demande extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'objet_demande',
+        'user_id'
+    ];
 
-    public function user() : HasMany
+    public function user() : BelongsTo
     {
-        return $this->hasMany(Demande::class);
+        return $this->BelongsTo(User::class);
     }
 }

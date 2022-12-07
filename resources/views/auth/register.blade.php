@@ -1,11 +1,20 @@
-@extends('layouts.app')
+@extends('formnav')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row mt-4">
+
+    </div>
+    <div class="row mt-4">
+
+    </div>
+    </div>
+<div class="container-fluid mt-2">
+    <div class="row justify-content-center align-tiems-center">
+        <div class="col-md-7 col-sm-7 col-lg-6">
             <div class="card">
-                <div class="card-header">{{ __('Inscription') }}</div>
+                {{-- <div class="card-header">{{ __('Inscription') }}</div> --}}
+                <img src="{{asset('assets/home_assets/images/inscription.jpg')}}" class="rounded mx-auto d-block" alt="...">
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
