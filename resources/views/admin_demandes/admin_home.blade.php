@@ -29,7 +29,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Mon profil</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.profile')}}">Mon profil</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{route('logout')}}"
                          onclick="event.preventDefault();
@@ -62,7 +62,7 @@
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Toutes les demandes
+                                demandes du mois
                             </a>
                         </div>
                     </div>
@@ -82,18 +82,20 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Demandes en attente</div>
+                                    <div class="card-body">Demandes en attente </div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('en_attente')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Demandes en cours de...</div>
+                                    <div class="card-body">Demandes en cours de... </div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('en_cours')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -101,8 +103,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Demandes Traitées</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('traitees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -110,8 +113,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Demandes rejetées</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('rejetees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -138,7 +142,7 @@
                                         @forelse ($demandes as $demande )
                                         <tr>
                                             @if ($demande->statut=='en attente')
-                                                <td>{{$demande->user->prenom }}</td>
+                                                <td>{{$demande->user->prenom.' '.$demande->user->nom }}</td>
                                                 <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                                                 <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                                                 @if ($demande->statut=='en attente')
@@ -160,7 +164,7 @@
                                                 <td>Rien a faire</td>
                                                 <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
                                             @elseif ($demande->statut=='en cours de traitement')
-                                                    <td>{{$demande->user->prenom }}</td>
+                                                    <td>{{$demande->user->prenom.' '.$demande->user->nom }}</td>
                                                     <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                                                     <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                                                     @if ($demande->statut=='en attente')
@@ -180,16 +184,13 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <form action="{{route('demande.rejeter',compact('demande'))}}" method="post">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button class="btn btn-danger">Rejeter</button>
+                                                       <a href="{{route('motif_rejet',compact('demande'))}}" class="btn btn-danger"> Rejeter</a>
                                                         </form>
                                                     </td>
                                                     <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
 
                                             @else
-                                            <td>{{$demande->user->prenom }}</td>
+                                            <td>{{$demande->user->prenom.' '.$demande->user->nom }}</td>
                                             <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                                             <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                                             @if ($demande->statut=='en attente')
@@ -216,7 +217,7 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto" style="background-color: #212529 !important;color:white;">
+                <footer class="py-4 bg-light mt-auto " style="background-color: #212529 !important;color:white;">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; LGI PROMO 19-20</div>

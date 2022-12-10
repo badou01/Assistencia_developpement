@@ -4,7 +4,7 @@
 Bonjour,
 Votre demande a été malheureusement rejetée pour
 le motif suivant:
-
+ {{$motif_rejet}}
 
 @component('mail::button', ['url' => route('demandes.show',compact('demande'))])
 Voir ma demande

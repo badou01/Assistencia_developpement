@@ -29,7 +29,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Mon profil</a></li>
+                        <li><a class="dropdown-item" href="{{route('user.profile')}}">Mon profil</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{route('logout')}}"
                          onclick="event.preventDefault();
@@ -60,6 +60,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Accueil
                             </a>
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Demandes du mois
+                            </a>
 
                         </div>
                     </div>
@@ -80,8 +84,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Demandes en attente</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('en_attente')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -89,8 +94,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Demandes en cours de...</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('en_cours')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -98,8 +104,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Demandes Traitées</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('traitees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -107,8 +114,9 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Demandes rejetées</div>
+                                    <h5 class="text-center"></h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{route('rejetees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -167,13 +175,7 @@
                                                     <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
                                                 </tr>
                                                 @empty
-                                                    <tr class="table-secondary" >
-                                                      <td></td>
-                                                      <td class="text-center">Aucune demande a afficher</td>
-                                                      <td></td>
-                                                      <td></td>
-                                                      <hr>
-                                                    </tr>
+                                                <div class="alert alert-secondary" style="height: 50px">Aucune demande a afficher</div>
                                                 @endforelse
                                             </tbody>
                                             <tfoot>

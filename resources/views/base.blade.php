@@ -80,7 +80,7 @@
 
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Mon profil</a>
+                                <a class="dropdown-item" href="{{route('user.profile')}}">Mon profil</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                              onclick="event.preventDefault();

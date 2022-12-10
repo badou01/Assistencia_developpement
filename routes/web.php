@@ -27,4 +27,21 @@ Route::put('/finaliser/{demande}',[DemandeController::class,'finaliser'])->name(
 Route::put('/rejeter/{demande}',[DemandeController::class,'rejeter'])->name('demande.rejeter');
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//USER Routes IL Y'EN A QUE 2
+Route::get('/profile',function(){
+    return view('user.profile');
+})->middleware('auth')->name('user.profile');
+
+Route::get('/rejeter/{demande}/motif',[DemandeController::class,'form_rejet'])->name('motif_rejet');
+//
+//
+Route::get('/wait', [DemandeController::class,'en_attente'])->name('en_attente')->middleware('auth');
+
+Route::get('/loading', [DemandeController::class,'en_cours'])->name('en_cours')->middleware('auth');
+
+Route::get('/ended', [DemandeController::class,'traitees'])->name('traitees')->middleware('auth');
+
+Route::get('/failed', [DemandeController::class,'rejetees'])->name('rejetees')->middleware('auth');
+
+
 

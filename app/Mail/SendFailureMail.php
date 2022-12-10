@@ -14,14 +14,16 @@ class SendFailureMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $demande;
+    public $motif_rejet;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Demande $demande)
+    public function __construct(Demande $demande,$motif_rejet)
     {
         $this->demande=$demande;
+        $this->motif_rejet=$motif_rejet;
         //
     }
 
