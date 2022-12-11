@@ -33,6 +33,10 @@ class LoginController extends Controller
         if (auth()->user()->role == 1) {
             return '/dashboardadmin';
         }
+        else if(auth()->user()->role==2)
+        {
+            return '/assistancia_dashboard';
+        }
         return '/demandes';
     }
 

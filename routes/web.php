@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DemandeController;
 use App\Models\Demande;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,3 +46,13 @@ Route::get('/failed', [DemandeController::class,'rejetees'])->name('rejetees')->
 
 
 Route::get('/demande_du_mois',[DemandeController::class,'demande_du_mois'])->name('demande_du_mois')->middleware('auth');
+
+Route::get('/assistancia_dashboard',[DemandeController::class,'index'])->middleware('auth','isassist')->name('assistancia_dash');
+
+Route::get('/traitées',function(){
+    $demandes=Demande::where('statut','traitée')->whereMonth('created_at',Carbon::today()->month)->get();
+    $taille_traité=Demande::where('statut','traitée')->get()->count();
+    return view('assistancia_user.traitees',compact('demandes','taille_traité'));
+
+})->middleware('auth','isassist')->name('assistancia_traitées');
+

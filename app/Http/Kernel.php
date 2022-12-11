@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\IsAssistance;
 use App\Http\Middleware\VerifAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -65,5 +66,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifadmin'=> \App\Http\Middleware\VerifAdmin::class,
+        'isassist'=>\App\Http\Middleware\IsAssistance::class,
     ];
 }

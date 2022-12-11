@@ -33,7 +33,7 @@ class DemandeController extends Controller
             $taille_rejeté=Demande::where('statut','rejetée')->where('traiteur',$alp)->get()->count();
             return view('admin_demandes.admin_home',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
         }
-        else{
+        else if(Auth::user()->role==0){
             $alp=Auth::id();
             $demandes=Demande::where('user_id',$alp)->paginate(2);
             $taille_en_attente=Demande::where('user_id',$alp)->where('statut','en attente')->get()->count();
@@ -43,6 +43,16 @@ class DemandeController extends Controller
 
 
             return view('demande.list',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
+        }
+        else
+        {
+            $taille_en_attente=Demande::where('statut','en attente')->get()->count();
+            $taille_encours=Demande::where('statut','en cours de traitement')->get()->count();
+            $taille_traité=Demande::where('statut','traitée')->get()->count();
+            $taille_rejeté= Demande::where('statut','rejetée')->get()->count();
+
+            return view('assistancia_user.assistance',compact('taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
+
         }
 
     }
