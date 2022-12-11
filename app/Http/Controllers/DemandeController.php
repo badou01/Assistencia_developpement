@@ -8,6 +8,7 @@ use App\Mail\SendNotifToAdmins;
 use App\Mail\SendSuccessMail;
 use App\Models\Demande;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -26,13 +27,22 @@ class DemandeController extends Controller
         if (Auth::user()->role==1) {
             $alp=$alp=Auth::id();
             $demandes=Demande::where('statut','en attente')->orWhere('traiteur',$alp)->paginate(2);
-            return view('admin_demandes.admin_home',compact('demandes'));
+            $taille_en_attente=Demande::where('statut','en attente')->get()->count();
+            $taille_encours=Demande::where('statut','en cours de traitement')->where('traiteur',$alp)->get()->count();
+            $taille_traité=Demande::where('statut','traitée')->where('traiteur',$alp)->get()->count();
+            $taille_rejeté=Demande::where('statut','rejetée')->where('traiteur',$alp)->get()->count();
+            return view('admin_demandes.admin_home',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
         }
         else{
             $alp=Auth::id();
             $demandes=Demande::where('user_id',$alp)->paginate(2);
+            $taille_en_attente=Demande::where('user_id',$alp)->where('statut','en attente')->get()->count();
+            $taille_encours=Demande::where('user_id',$alp)->where('statut','en cours de traitement')->get()->count();
+            $taille_traité=Demande::where('user_id',$alp)->where('statut','traitée')->get()->count();
+            $taille_rejeté= Demande::where('user_id',$alp)->where('statut','rejetée')->get()->count();
 
-            return view('demande.list',compact('demandes'));
+
+            return view('demande.list',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
         }
 
     }
@@ -121,6 +131,24 @@ class DemandeController extends Controller
         return redirect()->route('demandes.index')->with('congrats','votre demande a été envoyée');
 
     }
+    //
+    public function demande_du_mois(){
+        $alp=Auth::id();
+        if(Auth::user()->role==1)
+        {
+            $demandes=Demande::where(function($query){
+               $query->where('statut','en attente')->orWhere('traiteur',Auth::id());
+            })->whereMonth('created_at',Carbon::today()->month)->paginate(2);
+
+
+        }
+        else
+        {
+            $demandes=Demande::where('user_id',$alp)->whereMonth('created_at',Carbon::today()->month)->paginate(2);
+        }
+        $title='Demande du mois';
+        return view('demande.liste_part',compact('demandes','title'));
+    }
     //separation de pages
     //
     //
@@ -192,6 +220,7 @@ class DemandeController extends Controller
             $demandes=Demande::where('user_id',$alp)->where('statut','rejetée')->paginate(2);
 
         }
+
         $title='Demandes rejetées';
         return view('demande.liste_part',compact('demandes','title'));
     }

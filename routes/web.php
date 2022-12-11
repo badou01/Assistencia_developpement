@@ -44,4 +44,4 @@ Route::get('/ended', [DemandeController::class,'traitees'])->name('traitees')->m
 Route::get('/failed', [DemandeController::class,'rejetees'])->name('rejetees')->middleware('auth');
 
 
-
+Route::get('/demande_du_mois',[DemandeController::class,'demande_du_mois'])->name('demande_du_mois')->middleware('auth');

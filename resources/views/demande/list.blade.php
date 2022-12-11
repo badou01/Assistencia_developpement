@@ -60,7 +60,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Accueil
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('demande_du_mois')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Demandes du mois
                             </a>
@@ -84,7 +84,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Demandes en attente</div>
-                                    <h5 class="text-center"></h5>
+                                    <h5 class="text-center">{{$taille_en_attente}}</h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{route('en_attente')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -94,7 +94,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Demandes en cours de...</div>
-                                    <h5 class="text-center"></h5>
+                                    <h5 class="text-center">{{$taille_encours}}</h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{route('en_cours')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -104,7 +104,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Demandes Traitées</div>
-                                    <h5 class="text-center"></h5>
+                                    <h5 class="text-center">{{$taille_traité}}</h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{route('traitees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -114,7 +114,7 @@
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Demandes rejetées</div>
-                                    <h5 class="text-center"></h5>
+                                    <h5 class="text-center">{{$taille_rejeté}}</h5>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{route('rejetees')}}">Voir Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto" style="background-color: #212529 !important;color:white;">
+                <footer class="py-4 bg-light mt-auto h-50" style="background-color: #212529 !important;color:white;">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; LGI PROMO 19-20</div>

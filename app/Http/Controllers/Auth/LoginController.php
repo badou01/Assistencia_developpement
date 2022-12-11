@@ -33,7 +33,7 @@ class LoginController extends Controller
         if (auth()->user()->role == 1) {
             return '/dashboardadmin';
         }
-        return '/';
+        return '/demandes';
     }
 
 
