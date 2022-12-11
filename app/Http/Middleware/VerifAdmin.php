@@ -23,7 +23,7 @@ class VerifAdmin
             return $next($request);
         }
         else{
-            return response()->json('ACCES REFUSÉ c\'est pour les admins seulement');
+            return response()->json('ACCES REFUSE c\'est pour les admins seulement');
         }
 
     }
