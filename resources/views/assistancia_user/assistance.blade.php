@@ -92,7 +92,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
-    <a href="" class="brand-link">
+    <a href="{{route('assistancia_dash')}}" class="brand-link">
       <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">ASSISTANCIA</span>
     </a>
@@ -172,7 +172,7 @@
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="/trait_mois" class="small-box-footer">plus d'info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{route('assistancia_traitées')}}" class="small-box-footer">plus d'info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
