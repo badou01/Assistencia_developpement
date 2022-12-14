@@ -107,7 +107,15 @@
               Tableau de Bord
             </p>
           </a>
-
+          <br>
+        </li>
+        <li class="nav-item menu-open">
+          <a href="{{route('defar_admin')}}" class="nav-link ">
+            <i class="nav-icon far fa-circle"></i>
+            <p>
+               Définir admins
+            </p>
+          </a>
         </li>
      <br>
           {{-- <li class="nav-item menu-open">
@@ -273,7 +281,7 @@
                             <td>{{ $demande->objet_demande }}</td>
                             <td>
 
-                             @if ( $demande->statut == 2 )
+                             @if ( $demande->statut )
                              <div class="badge bg-success">Demande Traitée</div>
                              @endif
 

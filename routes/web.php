@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\UserController;
 use App\Models\Demande;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::resource('user', UserController::class);
 Route::get('/', function () {
     return view('my_home.home');
 });
@@ -56,3 +58,8 @@ Route::get('/traitées',function(){
 
 })->middleware('auth','isassist')->name('assistancia_traitées');
 
+Route::get('/def_admin',function(){
+$us=User::where('role','0')->get();
+
+return view('assistancia_user.def_admin',compact('us'));
+})->name('defar_admin');

@@ -26,7 +26,7 @@
             <table class="table table-striped
             table-hover
             table-borderless
-            table-primary
+            table
             align-middle">
                 <thead class="table-light">
 
@@ -40,16 +40,16 @@
                     </thead>
                     <tbody class="table-group-divider">
                         @forelse ($demandes as $demande)
-                        <tr class="table-primary" >
+                        <tr  >
                             <td scope="row">{{$demande->user->prenom.' '.$demande->user->nom}}</td>
                             <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                             <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                             @if ($demande->statut=='en attente')
-                                 <td><span class="badge bg-warning text-dark">{{$demande->statut}}</span></td>
+                                 <td><span class="badge bg-info ">{{$demande->statut}}</span></td>
                             @elseif ($demande->statut=='en cours de traitement')
-                                <td><span class="badge bg-secondary text-dark">{{$demande->statut}}</span></td>
+                                <td><span class="badge bg-warning ">{{$demande->statut}}</span></td>
                             @elseif ($demande->statut=='rejetée')
-                                <td><span class="badge bg-danger text-dark">{{$demande->statut}}</span></td>
+                                <td><span class="badge bg-danger ">{{$demande->statut}}</span></td>
                             @else
                                 <td><span class="badge bg-success">{{$demande->statut}}</span></td>
                             @endif
@@ -64,7 +64,6 @@
                     </tfoot>
 
             </table>
-            {!! $demandes->links('pagination::bootstrap-5') !!}
 
         </div>
     </div>
@@ -94,11 +93,11 @@
                         <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                         <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                         @if ($demande->statut=='en attente')
-                                    <td><span class="badge bg-warning text-dark">{{$demande->statut}}</span></td>
+                                    <td><span class="badge bg-info ">{{$demande->statut}}</span></td>
                         @elseif ($demande->statut=='en cours de traitement')
-                                    <td><span class="badge bg-secondary text-dark">{{$demande->statut}}</span></td>
+                                    <td><span class="badge bg-warning ">{{$demande->statut}}</span></td>
                         @elseif ($demande->statut=='rejetée')
-                                    <td><span class="badge bg-danger text-dark">{{$demande->statut}}</span></td>
+                                    <td><span class="badge bg-danger ">{{$demande->statut}}</span></td>
                         @else
                                     <td><span class="badge bg-success">{{$demande->statut}}</span></td>
                         @endif
@@ -116,11 +115,11 @@
                             <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                             <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                             @if ($demande->statut=='en attente')
-                                        <td><span class="badge bg-warning text-dark">{{$demande->statut}}</span></td>
+                                        <td><span class="badge bg-info text-light">{{$demande->statut}}</span></td>
                             @elseif ($demande->statut=='en cours de traitement')
-                                        <td><span class="badge bg-secondary text-dark">{{$demande->statut}}</span></td>
+                                        <td><span class="badge bg-warning text-light">{{$demande->statut}}</span></td>
                             @elseif ($demande->statut=='rejetée')
-                                        <td><span class="badge bg-danger text-dark">{{$demande->statut}}</span></td>
+                                        <td><span class="badge bg-danger text-light">{{$demande->statut}}</span></td>
                             @else
                                         <td><span class="badge bg-success">{{$demande->statut}}</span></td>
                             @endif
@@ -142,16 +141,16 @@
                     <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
                     <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
                     @if ($demande->statut=='en attente')
-                                <td><span class="badge bg-warning text-dark">{{$demande->statut}}</span></td>
+                                <td><span class="badge bg-info text-light">{{$demande->statut}}</span></td>
                     @elseif ($demande->statut=='en cours de traitement')
-                                <td><span class="badge bg-secondary text-dark">{{$demande->statut}}</span></td>
+                                <td><span class="badge bg-warning text-light">{{$demande->statut}}</span></td>
                     @elseif ($demande->statut=='rejetée')
-                                <td><span class="badge bg-danger text-dark">{{$demande->statut}}</span></td>
+                                <td><span class="badge bg-danger text-light">{{$demande->statut}}</span></td>
                     @else
                                 <td><span class="badge bg-success">{{$demande->statut}}</span></td>
                     @endif
-                    <td><span class="badge bg-dark">Terminée</span></td>
-                    <td><span class="badge bg-dark">Terminée</span></td>
+                    <td><span class="badge bg-light">Terminée</span></td>
+                    <td><span class="badge bg-light">Terminée</span></td>
                     <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
                     @endif
                 </tr>
@@ -160,7 +159,6 @@
                 @endforelse
             </tbody>
           </table>
-          {!! $demandes->links('pagination::bootstrap-5') !!}
     </div>
 
 </div>

@@ -26,7 +26,7 @@ class DemandeController extends Controller
         //
         if (Auth::user()->role==1) {
             $alp=$alp=Auth::id();
-            $demandes=Demande::where('statut','en attente')->orWhere('traiteur',$alp)->paginate(2);
+            $demandes=Demande::where('statut','en attente')->orWhere('traiteur',$alp)->get();
             $taille_en_attente=Demande::where('statut','en attente')->get()->count();
             $taille_encours=Demande::where('statut','en cours de traitement')->where('traiteur',$alp)->get()->count();
             $taille_traité=Demande::where('statut','traitée')->where('traiteur',$alp)->get()->count();
@@ -35,7 +35,7 @@ class DemandeController extends Controller
         }
         else if(Auth::user()->role==0){
             $alp=Auth::id();
-            $demandes=Demande::where('user_id',$alp)->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->get();
             $taille_en_attente=Demande::where('user_id',$alp)->where('statut','en attente')->get()->count();
             $taille_encours=Demande::where('user_id',$alp)->where('statut','en cours de traitement')->get()->count();
             $taille_traité=Demande::where('user_id',$alp)->where('statut','traitée')->get()->count();
@@ -148,13 +148,13 @@ class DemandeController extends Controller
         {
             $demandes=Demande::where(function($query){
                $query->where('statut','en attente')->orWhere('traiteur',Auth::id());
-            })->whereMonth('created_at',Carbon::today()->month)->paginate(2);
+            })->whereMonth('created_at',Carbon::today()->month)->get();
 
 
         }
         else
         {
-            $demandes=Demande::where('user_id',$alp)->whereMonth('created_at',Carbon::today()->month)->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->whereMonth('created_at',Carbon::today()->month)->get();
         }
         $title='Demande du mois';
         return view('demande.liste_part',compact('demandes','title'));
@@ -167,13 +167,13 @@ class DemandeController extends Controller
         if(Auth::user()->role==1)
             {
                 $alp=$alp=Auth::id();
-                $demandes=Demande::where('statut','en attente')->paginate(2);
+                $demandes=Demande::where('statut','en attente')->get();
 
             }
         else
         {
             $alp=Auth::id();
-            $demandes=Demande::where('user_id',$alp)->where('statut','en attente')->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->where('statut','en attente')->get();
         }
         $title='Demandes en attente';
         return view('demande.liste_part',compact('demandes','title'));
@@ -186,13 +186,13 @@ class DemandeController extends Controller
         if(Auth::user()->role==1)
         {
             $alp=$alp=Auth::id();
-            $demandes=Demande::where('statut','en cours de traitement')->where('traiteur',$alp)->paginate(2);
+            $demandes=Demande::where('statut','en cours de traitement')->where('traiteur',$alp)->get();
 
         }
         else
         {
             $alp=Auth::id();
-            $demandes=Demande::where('user_id',$alp)->where('statut','en cours de traitement')->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->where('statut','en cours de traitement')->get();
 
         }
         $title='Demandes en cours de traitement';
@@ -206,12 +206,12 @@ class DemandeController extends Controller
         if(Auth::user()->role==1)
         {
             $alp=$alp=Auth::id();
-            $demandes=Demande::where('statut','traitée')->where('traiteur',$alp)->paginate(2);
+            $demandes=Demande::where('statut','traitée')->where('traiteur',$alp)->get();
         }
     else
         {
             $alp=Auth::id();
-            $demandes=Demande::where('user_id',$alp)->where('statut','traitée')->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->where('statut','traitée')->get();
         }
         $title='Demandes traitées';
         return view('demande.liste_part',compact('demandes','title'));
@@ -222,12 +222,12 @@ class DemandeController extends Controller
         if(Auth::user()->role==1)
         {
             $alp=$alp=Auth::id();
-            $demandes=Demande::where('statut','rejetée')->where('traiteur',$alp)->paginate(2);
+            $demandes=Demande::where('statut','rejetée')->where('traiteur',$alp)->get();
         }
         else
         {
             $alp=Auth::id();
-            $demandes=Demande::where('user_id',$alp)->where('statut','rejetée')->paginate(2);
+            $demandes=Demande::where('user_id',$alp)->where('statut','rejetée')->get();
 
         }
 
