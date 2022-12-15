@@ -70,7 +70,7 @@
                                 <div class="occupation">Etudiant en Genie Logciel</div>
                             </div> <!-- end of text -->
                         </div> <!-- end of testimonial-details -->
-                        <p class="testimonial-text">“email: zepekzach@gmail.com” <br>Telephone : +221763301318</p>
+                        <p class="testimonial-text">“email: zepekzach@gmail.com” <br>Telephone : +221 76 330 13 18</p>
 
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                 <div class="occupation">Etudiant en genie Logiciel</div>
                             </div> <!-- end of text -->
                         </div> <!-- end of testimonial-details -->
-                        <p class="testimonial-text">“email: ****@gmail.com” <br>Telephone : +221*******</p>
+                        <p class="testimonial-text">“email: ousmanea.gueye@gmail.com” <br>Telephone : +221 78 011 12 45</p>
                     </div>
                 </div>
                 <!-- end of card -->
