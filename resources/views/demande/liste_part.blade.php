@@ -75,7 +75,8 @@
         {{$title}}
     </div>
     <div class="card-body ">
-        <table class="table table-dark table-striped">
+        <div class="table-responsive  h-75">
+        <table class="table table-striped">
             <thead>
                 <th>Utilisateur</th>
                 <th>Demande</th>
@@ -149,8 +150,8 @@
                     @else
                                 <td><span class="badge bg-success">{{$demande->statut}}</span></td>
                     @endif
-                    <td><span class="badge bg-light">Terminée</span></td>
-                    <td><span class="badge bg-light">Terminée</span></td>
+                    <td><span class="badge bg-dark text-light">Terminée</span></td>
+                    <td><span class="badge bg-dark text-light">Terminée</span></td>
                     <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
                     @endif
                 </tr>
@@ -159,6 +160,7 @@
                 @endforelse
             </tbody>
           </table>
+        </div>
     </div>
 
 </div>

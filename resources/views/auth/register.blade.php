@@ -10,7 +10,7 @@
     </div>
     </div>
 <div class="container-fluid mt-2">
-    <div class="row justify-content-center align-tiems-center">
+    <div class="row justify-content-center align-items-center">
         <div class="col-md-7 col-sm-7 col-lg-6">
             <div class="card">
                 {{-- <div class="card-header">{{ __('Inscription') }}</div> --}}

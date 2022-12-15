@@ -36,13 +36,17 @@ class DemandeController extends Controller
         else if(Auth::user()->role==0){
             $alp=Auth::id();
             $demandes=Demande::where('user_id',$alp)->get();
+            $nom=Auth::user()->nom;
+            $prenom=Auth::user()->prenom;
+            $nom_utilisateur=Auth::user()->nom_utilisateur;
+            $photo_profil=Auth::user()->photo_identite;
             $taille_en_attente=Demande::where('user_id',$alp)->where('statut','en attente')->get()->count();
             $taille_encours=Demande::where('user_id',$alp)->where('statut','en cours de traitement')->get()->count();
             $taille_traité=Demande::where('user_id',$alp)->where('statut','traitée')->get()->count();
             $taille_rejeté= Demande::where('user_id',$alp)->where('statut','rejetée')->get()->count();
 
 
-            return view('demande.list',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
+            return view('demande.list',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté','nom','prenom','nom_utilisateur','photo_profil'));
         }
         else
         {

@@ -24,7 +24,7 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand " style="background-color: rgb(1, 1, 21)">
+  <nav class="main-header navbar navbar-expand " style="background-color: rgb(19, 19, 20)">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item ">

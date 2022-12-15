@@ -63,3 +63,17 @@ $us=User::where('role','0')->get();
 
 return view('assistancia_user.def_admin',compact('us'));
 })->name('defar_admin');
+
+
+Route::get('/essai', function () {
+    $alp=Auth::id();
+    $demandes=Demande::where('user_id',$alp)->get();
+
+    $nom=Auth::user()->nom;
+    $prenom=Auth::user()->prenom;
+    $nom_utilisateur=Auth::user()->nom_utilisateur;
+    $photo_profil=Auth::user()->photo_identite;
+    return view('/essai',compact('demandes','nom','prenom','nom_utilisateur','photo_profil'));
+
+    // return view('/essai',compact('demandes'));
+});

@@ -6,7 +6,7 @@
 
       <div class="row d-flex justify-content-center">
         <div class="col-md-12 col-lg-10 col-xl-8">
-          <div class="card">
+          <div class="card bg-light">
             <h4 class="text-center text-dark bg-light fw-bold">Motif du rejet</h4>
             <div class="card-body">
               <div class="d-flex flex-start align-items-center">

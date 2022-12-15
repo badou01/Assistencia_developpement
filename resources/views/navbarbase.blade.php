@@ -11,7 +11,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <!-- Navbar content -->
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{route('demandes.index')}}">Retour</a>
+            <a class="navbar-brand " href="{{route('demandes.index')}}">Retour</a>
         </div>
       </nav>
 @yield('contenu_affiche')

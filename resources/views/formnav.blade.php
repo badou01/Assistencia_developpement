@@ -32,11 +32,11 @@
 <body data-spy="scroll" data-target=".fixed-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark py-2" style="background-color:#212529 !important; ">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark py-2" style="background-color:#121415 !important; ">
         <div class="container ">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="{{url('/')}}" style="text-decoration: none;"><span>ASSISTANCIA_REC</span></a>
+            <a class="navbar-brand logo-image" href="{{url('/')}}" style="text-decoration: none;"><span>ASSISTANCIA</span></a>
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Mark</a> -->
@@ -111,7 +111,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <p class="p-small">Produit en <a class="no-line" href="https://themewagon.com/">2022</a></p>
+                <p class="p-small">Produit en <a class="no-line" href="">2022</a></p>
             </div> <!-- end of col -->
         </div> <!-- enf of row -->
     </div> <!-- end of container -->

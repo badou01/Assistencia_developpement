@@ -98,10 +98,10 @@
                             <img src="{{asset('assets/home_assets/images/Thiate.jpg')}}" alt="alternative">
                             <div class="text">
                                 <div class="testimonial-author">Serigne Thiate Thioune</div>
-                                <div class="occupation">Developpeur Web</div>
+                                <div class="occupation">Etudiant en genie Logiciel</div>
                             </div> <!-- end of text -->
                         </div> <!-- end of testimonial-details -->
-                        <p class="testimonial-text">“email: ****@gmail.com” <br>Telephone : +221*******</p>
+                        <p class="testimonial-text">“email: thiouneserignethiate@gmail.com” <br>Telephone : +221 77 329 37 49</p>
 
                     </div>
                 </div>

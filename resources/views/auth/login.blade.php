@@ -8,12 +8,12 @@
 </div>
 </div>
 <div class="container-fluid mt-5 my-5 ">
-    <div class="row justify-content-center align-tiems-center ">
+    <div class="row justify-content-center align-items-center ">
         <div class="col-md-7 col-sm-7 col-lg-4">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-white">
                     {{-- <h4 class="text-center">{{ __('Connexion') }}</h4> --}}
-                    <img src="{{asset('assets/home_assets/images/connexion.jpg')}}" class="rounded mx-auto d-block" alt="...">
+                    <img  src="{{asset('assets/home_assets/images/connexion.jpg')}}" class="rounded mx-auto d-block" alt="...">
 
                     </div>
 

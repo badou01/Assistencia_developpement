@@ -36,7 +36,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="{{url('/')}}" style="text-decoration: none;">ASSISTANCIA_REC</a>
+            <a class="navbar-brand logo-image" href="{{url('/')}}" style="text-decoration: none;">ASSISTANCIA</a>
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Mark</a> -->
