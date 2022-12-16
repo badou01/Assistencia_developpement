@@ -1,274 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Glassmorphism login Form Tutorial in html css</title>
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - Reclamations Employe</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="{{asset('assets/dash_assets/css/styles.css')}}" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="{{url('/')}}">ASSISTANCIA</a>
+<head>
+  <!-- Design by foolishdeveloper.com -->
+    <title>Glassmorphism login Form Tutorial in html css</title>
 
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            {{-- <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form> --}}
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{route('user.profile')}}">Mon profil</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{route('logout')}}"
-                         onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Deconnexion')}}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Corps</div>
-                            <a class="nav-link" href="{{url('/dashboardadmin')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+form{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
 
-                            <div class="sb-sidenav-menu-heading">Autres</div>
-                            <a class="nav-link" href="{{url('/')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Accueil
-                            </a>
-                            <a class="nav-link" href="{{route('demande_du_mois')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Demandes du mois
-                            </a>
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
 
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Connecté en tant que:</div>
-                        {{Auth::user()->nom_utilisateur}}
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard Employé</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        {{-- <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Demandes en attente</div>
-                                    <h5 class="text-center">{{$taille_en_attente}}</h5>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('en_attente')}}">Voir Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Demandes en cours de...</div>
-                                    <h5 class="text-center">{{$taille_encours}}</h5>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('en_cours')}}">Voir Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Demandes Traitées</div>
-                                    <h5 class="text-center">{{$taille_traité}}</h5>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('traitees')}}">Voir Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Demandes rejetées</div>
-                                    <h5 class="text-center">{{$taille_rejeté}}</h5>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="{{route('rejetees')}}">Voir Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <div class="row ">
-                            <div class="col-md-5">
-                              <div class="card bg-light">
-                                <h4 class="text-center text-dark bg-light fw-bold">Formulaire de demande</h4>
-                                <div class="card-body bg-light">
-                                  <div class="d-flex flex-start  align-items-center">
-                                    @if ($photo_profil!=null)
-                                    <img class="rounded-circle shadow-1-strong me-3"
-                                      src="/photos/{{$photo_profil}}" alt="" width="60"
-                                      height="60" />
-                                    @else
-                                    <img class="rounded-circle shadow-1-strong me-3"
-                                    src="/photos/photo_identites/noprofile.png" alt="avatar" width="60"
-                                    height="60" />
-                                    @endif
-                                    <div>
-                                      <h6 class="fw-bold text-dark mb-1">
-                                        {{$prenom.' '.$nom}}
-                                      </h6>
-                                      <p class="text-muted small mb-0">
-                                        {{'@'.$nom_utilisateur}}
-                                      </p>
-                                    </div>
-                                  </div>
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    {{-- <form method="POST" action="{{ route('login') }}">
+        @csrf
 
+        <div class="row mb-3">
+            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse e-mail') }}</label>
 
-                                </div>
-                                <form action="{{route('demandes.store')}}" method="post">
-                                    @csrf
-                                    <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
-                                        <div class="d-flex flex-start w-100 ">
-                                            @if ($photo_profil!=null)
-                                            <img class="rounded-circle shadow-1-strong me-3"
-                                              src="/photos/{{$photo_profil}}" alt="" width="60"
-                                              height="60" />
-                                            @else
-                                            <img class="rounded-circle shadow-1-strong me-3"
-                                            src="/photos/photo_identites/noprofile.png" alt="avatar" width="60"
-                                            height="60" />
-                                            @endif
-                                          <div class="form-outline w-100">
-                                            <label class="form-label" for="objet_demande">Objet de la demande</label>
-                                            <textarea class="form-control" name="objet_demande" rows="4"
-                                              style="background: #fff;"></textarea>
+            <div class="col-md-6">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required autocomplete="email" autofocus>
 
-                                          </div>
-                                        </div>
-                                        <div class="float-end mt-2 pt-1">
-                                          <button type="submit" class="btn btn-primary btn-sm">
-                                            Envoyer
-                                          </button>
-                                          <button type="reset" class="btn btn-outline-danger btn-sm">
-                                            Réinitialiser
-                                          </button>
-                                        </div>
-                                      </div>
-                                </form>
-                              </div>
-                            </div>
-                          </div>
-<br>
-                        <div class="card mb-4">
-                            <div class="card-header d-inline-flex">
-                                <div>
-                                    <i class="fas fa-table me-1"></i>
-                                Toutes mes demandes
-                                </div>
-                                <div class="mx-auto"></div>
-                                <div class="mx-auto"></div>
-                                <div class="mx-auto"></div>
-                                <div class="mx-auto"></div>
-                                <div class="mx-auto"></div>
-                                <div class="mx-auto">
-                                        {{-- <a href="{{route('demandes.create')}}" class="btn btn-primary"> Nouvelle demande</a> --}}
-                                </div>
-
-                            </div>
-
-                            <div class="card-body">
-                                <div class="table-responsive  h-75">
-                                    <table class="table table-striped
-                                    table-hover
-                                    table-borderless
-                                    table
-                                    align-middle">
-                                        <thead class="table-light">
-
-                                            <tr>
-                                                <th>Utilisateur</th>
-                                                <th>Demande</th>
-                                                <th>Details</th>
-                                                <th>Statut</th>
-                                                <th>Créée depuis</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody class="table-group-divider">
-                                                @forelse ($demandes as $demande)
-                                                <tr  >
-                                                    <td scope="row">{{$demande->user->prenom.' '.$demande->user->nom}}</td>
-                                                    <td>{{substr($demande->objet_demande,0,10).'...' }}</td>
-                                                    <td><a href="{{route('demandes.show',compact('demande'))}}" class="btn btn-primary">Details</a></td>
-                                                    @if ($demande->statut=='en attente')
-                                                         <td><span class="badge bg-info ">{{$demande->statut}}</span></td>
-                                                    @elseif ($demande->statut=='en cours de traitement')
-                                                        <td><span class="badge bg-warning ">{{$demande->statut}}</span></td>
-                                                    @elseif ($demande->statut=='rejetée')
-                                                        <td><span class="badge bg-danger ">{{$demande->statut}}</span></td>
-                                                    @else
-                                                        <td><span class="badge bg-success">{{$demande->statut}}</span></td>
-                                                    @endif
-                                                    <td>{{date('d/m/Y',strtotime($demande->created_at))}}</td>
-                                                </tr>
-                                                @empty
-                                                <div class="alert alert-secondary" style="height: 50px">Aucune demande a afficher</div>
-                                                @endforelse
-                                            </tbody>
-                                            <tfoot>
-
-                                            </tfoot>
-
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto h-50" style="background-color: #212529 !important;color:white;">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; LGI PROMO 19-20</div>
-                            <div>
-                                <p>Produit en 2022</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="{{ asset('assets/dash_assets/js/scripts.js')}}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="{{asset('assets/dash_assets/assets/demo/chart-area-demo.js')}}"></script>
-        <script src="{{asset('assets/dash_assets/assets/demo/chart-bar-demo.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="{{asset('assets/dash_assets/js/datatables-simple-demo.js')}}"></script>
-    </body>
+
+        <div class="row mb-3">
+            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
+
+            <div class="col-md-6">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-0">
+            <div class="col-12 offset-md-3">
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Login') }}
+                </button>
+
+                @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Mot de passe Oublié?') }}
+                    </a>
+                @endif
+            </div>
+        </div>
+    </form> --}}
+
+
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <h3>Connectez-vous ici</h3>
+
+  <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Adresse e-mail') }}</label>
+            <div>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"  required autocomplete="email" autofocus>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
+
+            <div class="">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+
+
+        <button>S'identifier</button>
+        <div class="social">
+
+          <div class="fb">      <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          </div>
+          <div class="fb">  Inscription</div>
+        </div>
+    </form>
+</body>
+</html>
+<!-- partial -->
+
+</body>
 </html>

@@ -33,7 +33,7 @@ class DemandeController extends Controller
             $taille_rejeté=Demande::where('statut','rejetée')->where('traiteur',$alp)->get()->count();
             return view('admin_demandes.admin_home',compact('demandes','taille_en_attente','taille_encours','taille_traité','taille_rejeté'));
         }
-        else if(Auth::user()->role==0){
+        else if(Auth::user()->role==0 ){
             $alp=Auth::id();
             $demandes=Demande::where('user_id',$alp)->get();
             $nom=Auth::user()->nom;

@@ -237,22 +237,23 @@
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                        <a class="nav-link active" href="#sales-chart" data-toggle="tab">Donut</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                      </li>
+
+                      {{-- <li class="nav-item">
+                        <a class="nav-link " href="#revenue-chart" data-toggle="tab">Area</a>
+                      </li> --}}
                     </ul>
                   </div>
                 </div><!-- /.card-header -->
                 <div class="card-body">
                   <div class="tab-content p-0">
                     <!-- Morris chart - Sales -->
-                    <div class="chart tab-pane active" id="revenue-chart"
+                    {{-- <div class="chart tab-pane " id="revenue-chart"
                          style="position: relative; height: 300px;">
                         <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
-                     </div>
-                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                     </div> --}}
+                    <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
                       <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
                     </div>
                   </div>
@@ -376,6 +377,41 @@
 <script src="{{asset('assets/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/dist/js/pages/dashboard.js')}}"></script>
+
+<script>
+//   DONUT
+  var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
+  var pieData = {
+    labels: [
+      'taille_rejeté',
+      'taille_traité',
+      'taille_encours',
+      'taille_en_attente'
+    ],
+    datasets: [
+      {
+
+        data: [{{$taille_rejeté}},{{$taille_traité}},{{$taille_encours}},{{$taille_en_attente}}],
+        backgroundColor: ['#f56954', '#00a65a', '#f39c12' ,'#00BFFF']
+      }
+    ]
+  }
+  var pieOptions = {
+    legend: {
+      display: false
+    },
+    maintainAspectRatio: false,
+    responsive: true
+  }
+  // Create pie or douhnut chart
+  // You can switch between pie and douhnut using the method below.
+  // eslint-disable-next-line no-unused-vars
+  var pieChart = new Chart(pieChartCanvas, { // lgtm[js/unused-local-variable]
+    type: 'doughnut',
+    data: pieData,
+    options: pieOptions
+  })
+</script>
 
 </body>
 </html>

@@ -41,7 +41,7 @@ class RegisterController extends Controller
         {
             return '/assistancia_dashboard';
         }
-        return '/demandes';
+        return '/profile';
     }
 
     /**

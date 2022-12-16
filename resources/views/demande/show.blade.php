@@ -42,11 +42,7 @@
                         </form>
                     </div>
                     <div class="">
-                        <form action="{{route('demande.rejeter',compact('demande'))}}" method="post">
-                            @csrf
-                            @method('PUT')
-                            <button class="btn btn-danger btn-sm mx-4">Rejeter</button>
-                        </form>
+                      <a href="{{route('motif_rejet',compact('demande'))}}" class="btn btn-danger btn-sm mx-4">Rejeter</a>
                     </div>
                 </div>
               @endif

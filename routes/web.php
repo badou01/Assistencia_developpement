@@ -25,7 +25,7 @@ Route::resource('user', UserController::class);
 Route::get('/', function () {
     return view('my_home.home');
 });
-Route::resource('demandes',DemandeController::class)->middleware('auth');
+Route::resource('demandes',DemandeController::class)->middleware('auth','verified');
 Auth::routes(['verify' => true]);
 Route::get('/dashboardadmin',[DemandeController::class,'index'])->middleware('auth','verifadmin','verified');
 Route::put('/traiter/{demande}',[DemandeController::class,'traitement'])->name('demande.traiter','verified');
@@ -36,7 +36,7 @@ Route::put('/rejeter/{demande}',[DemandeController::class,'rejeter'])->name('dem
 //USER Routes IL Y'EN A QUE 2
 Route::get('/profile',function(){
     return view('user.profile');
-})->middleware('auth')->name('user.profile');
+})->middleware('auth','verified')->name('user.profile');
 
 Route::get('/rejeter/{demande}/motif',[DemandeController::class,'form_rejet'])->name('motif_rejet');
 //
@@ -52,7 +52,7 @@ Route::get('/failed', [DemandeController::class,'rejetees'])->name('rejetees')->
 
 Route::get('/demande_du_mois',[DemandeController::class,'demande_du_mois'])->name('demande_du_mois')->middleware('auth','verified');
 
-Route::get('/assistancia_dashboard',[DemandeController::class,'index'])->middleware('auth','isassist')->name('assistancia_dash');
+Route::get('/assistancia_dashboard',[DemandeController::class,'index'])->middleware('auth','isassist','verified')->name('assistancia_dash');
 
 Route::get('/traitées',function(){
     $demandes=Demande::where('statut','traitée')->whereMonth('created_at',Carbon::today()->month)->get();
@@ -62,10 +62,12 @@ Route::get('/traitées',function(){
 })->middleware('auth','isassist')->name('assistancia_traitées');
 
 Route::get('/def_admin',function(){
-$us=User::where('role','0')->get();
+if (Auth::user()->role == 2 ){
+    $us=User::where('role','0')->get();
 
 return view('assistancia_user.def_admin',compact('us'));
-})->name('defar_admin');
+}
+})->name('defar_admin')->middleware('auth');
 
 
 
@@ -73,11 +75,11 @@ Route::get('/essai', function () {
     $alp=Auth::id();
     $demandes=Demande::where('user_id',$alp)->get();
 
-    $nom=Auth::user()->nom;
-    $prenom=Auth::user()->prenom;
-    $nom_utilisateur=Auth::user()->nom_utilisateur;
-    $photo_profil=Auth::user()->photo_identite;
-    return view('/essai',compact('demandes','nom','prenom','nom_utilisateur','photo_profil'));
+    // $nom=Auth::user()->nom;
+    // $prenom=Auth::user()->prenom;
+    // $nom_utilisateur=Auth::user()->nom_utilisateur;
+    // $photo_profil=Auth::user()->photo_identite;
+    // return view('/essai',compact('demandes','nom','prenom','nom_utilisateur','photo_profil'));
 
-    // return view('/essai',compact('demandes'));
+    return view('/essai',compact('demandes'));
 });
