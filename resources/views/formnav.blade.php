@@ -98,8 +98,10 @@
     @yield('content')
 
 
+
+
     <!-- Copyright -->
-<div class="copyright bg-gray mt-auto">
+<div class="copyright bg-gray mt-auto ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

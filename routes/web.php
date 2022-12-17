@@ -71,7 +71,7 @@ return view('assistancia_user.def_admin',compact('us'));
 
 
 
-Route::get('/essai', function () {
+Route::get('/essai/essai', function () {
     $alp=Auth::id();
     $demandes=Demande::where('user_id',$alp)->get();
 
@@ -81,5 +81,10 @@ Route::get('/essai', function () {
     // $photo_profil=Auth::user()->photo_identite;
     // return view('/essai',compact('demandes','nom','prenom','nom_utilisateur','photo_profil'));
 
-    return view('/essai',compact('demandes'));
-});
+    return view('/essai/essai',compact('demandes'));
+})->name('essai1');
+
+Route::get('/essai/essai2', function () {
+    return view('/essai/essai2');
+
+})->name('essai2');

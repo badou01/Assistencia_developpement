@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <!--Stylesheet-->
     <style media="screen">
+
       *,
 *:before,
 *:after{
@@ -62,7 +63,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 520px;
+    height: auto;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -145,7 +146,7 @@ button{
 
     </style>
 </head>
-<body>
+<body class="col-md-7 col-sm-7 col-lg-4"  style="height: 100px">
     <div class="background">
         <div class="shape"></div>
         <div class="shape"></div>
@@ -237,12 +238,17 @@ button{
 
 
 
-        <button>S'identifier</button>
+
+                    <button> {{ __('S\'identifier ') }} </button>
         <div class="social">
 
-          <div class="fb">      <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          <div class="">   @if (Route::has('password.request'))
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                {{ __('Mot de passe Oublié?') }}
+            </a>
+        @endif
           </div>
-          <div class="fb">  Inscription</div>
+          <a href="{{ route('register') }}"><div class="fb"> Inscription </div></a>
         </div>
     </form>
 </body>
