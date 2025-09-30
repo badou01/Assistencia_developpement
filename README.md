@@ -1,3 +1,43 @@
+# plateforme de gestion des réclamations pour les services clients des entreprises.
+<p>Un client qui souhaitera faire une demande, vient sur la plateforme, se 
+connecte et formule sa demande en remplissant un formulaire de demande. 
+La demande ainsi formulée sera ajoutée à la plateforme avec le statut « En 
+attente » et un mail sera envoyé à tous les administrateurs afin de les informer 
+qu’une nouvelle demande a été soumise. Depuis le mail reçu, un lien vers la 
+nouvelle demande sera disponible qui permettra aux administrateurs d’accéder 
+à la page de détails de la demande. </p>
+<p>Depuis la page de détails, si une demande est en attente, un administrateur 
+peut cliquer sur le bouton « Traiter la demande » qui permettra d’attribuer 
+automatiquement la demande à cet administrateur et mettre le statut de la 
+demande à « En cours de traitement ». Il faut noter qu’une demande est 
+assignée à un seul et unique administrateur.</p>
+<p>L’administrateur en charge de la demande peut changer le statut de la 
+demande. Le statut prend l’une des valeurs suivantes selon le niveau de 
+traitement : En attente, En cours de traitement, Rejetée, Traitée. 
+Si l’administrateur en charge de la demande indique que la demande est 
+rejetée, un mail d’information de rejet sera envoyé au client l’informant que sa 
+demande a été rejetée avec le motif du rejet précisé par l’administrateur. S’il 
+indique que la demande est traitée, un mail d’information sera envoyé à 
+l’utilisateur l’informant que sa demande est traitée avec succès. </p>
+<p>Le système doit envoyer un mail de rappel à tous les administrateurs si une 
+demande reste plus de 2 jours, 4 jours ou une semaine sans être prise par un 
+administrateur. </p>
+<p>Le système doit notifier l’administrateur responsable d’une demande si la 
+demande reste plus de 2 jours dans le statut « En cours de traitement ». 
+</p>
+<p>Assistancia souhaite disposer d’un tableau de bord qui indique le nombre de 
+demande traitée par chaque administrateur dans le mois en cours, le nombre 
+total de demande dans les statuts suivants : En attente, En cours de traitement, 
+Rejetée, Traitée. 
+Pour l’administrateur qui est connecté, on aimerait également voir, depuis le 
+tableau de bord : 
+<ul>
+ <li>Le nombre de ses demandes en attente,</li>
+<li>Le nombre de ses demandes rejetées, </li>
+<li>Le nombre de ses demandes traitées.</li>
+</ul>
+
+</p>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -64,3 +104,5 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<small>Deceember 2022</small>
