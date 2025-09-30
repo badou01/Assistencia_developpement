@@ -1,5 +1,5 @@
-# plateforme de gestion des réclamations pour les services clients des entreprises.
-<p>Un client qui souhaitera faire une demande, vient sur la plateforme, se 
+# plateforme de gestion des réclamations pour les services clients des entreprises(2022).
+<p> <strong>Objectif du projet❓</strong> : Un client qui souhaitera faire une demande, vient sur la plateforme, se 
 connecte et formule sa demande en remplissant un formulaire de demande. 
 La demande ainsi formulée sera ajoutée à la plateforme avec le statut « En 
 attente » et un mail sera envoyé à tous les administrateurs afin de les informer 
@@ -38,6 +38,7 @@ tableau de bord :
 </ul>
 
 </p>
+<p>⚙️ Technos utilisées: Laravel,Bootstrap,MYSQL🌐</p>
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
